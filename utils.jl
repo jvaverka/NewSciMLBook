@@ -3,43 +3,33 @@ using Weave
 
 
 """
-    \\weave{
-    ```julia
-    # some Julia code ...
-    ```
-    }
-
-A simple command to render and evaluate code chunk in Weave.jl-like way.
-"""
-function lx_weave(com, _)
-    content = Franklin.content(com.braces[1])
-    lines = split(content, '\n')
-    Core.eval(Main, :(lines = $(lines)))
-
-    i = findfirst(startswith("```julia"), lines)
-    @assert !isnothing(i) "couldn't find Weave.jl header"
-    lines = lines[i:end]
-
-    header = first(lines)
-    id = string("weave-chunk-id-", hash(gensym()))
-    lines[1] = string(header, ':', id)
-
-    push!(lines, "\\show{$(id)}")
-
-    return join(lines, '\n')
-end
-
-"""
     weaveall()
 
 Weave all lecture notes in the `_weave` directory. Run from site root.
 """
 function weaveall()
-    for (root, dirs, files) in walkdir("_weave")
+    for (root, _, files) in walkdir("_weave")
         for file in files
             if endswith(file, "jmd")
-                println("Found Weave Doc: $(joinpath(root, file))")
+                println("Weaving Document: $(joinpath(root, file))")
                 weave(joinpath(root, file); out_path=:doc)
+            end
+        end
+    end
+end
+
+
+"""
+    cleanall()
+
+Cleanup all Weave generated subdirectories.
+"""
+function cleanall()
+    for (root, dirs, _) in walkdir("_weave")
+        for dir in dirs
+            if startswith(dir, "jl_")
+                println("Removing Directory: $(joinpath(root, dir))")
+                rm(joinpath(root, dir); recursive=true, force=true)
             end
         end
     end
