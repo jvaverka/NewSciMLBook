@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  SciML Book  ]]>
+    </title>
+    <link> https://book.sciml.ai/ </link>
+    <description>
+      <![CDATA[  This book is a compilation of lecture notes from the MIT Course 18.337J/6.338J: Parallel Computing and Scientific Machine Learning. Links to the old notes https://mitmath.github.io/18337 will redirect here.  ]]>
+    </description>
+    <atom:link
+      href="https://book.sciml.ai/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  Optimizing Serial Code  ]]>
+  </title>
+  <link> https://book.sciml.ai/lectures/02/index.html </link>
+  <guid> https://book.sciml.ai/lectures/02/index.html </guid>
+  <description>
+    <![CDATA[  This discussion of serial code optimization will directly motivate why we will be using Julia throughout this course.  ]]>
+  </description>  
+    
+  <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Chris Rackauckas</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  How Loops Work, An Introduction to Discrete Dynamics  ]]>
+  </title>
+  <link> https://book.sciml.ai/lectures/04/index.html </link>
+  <guid> https://book.sciml.ai/lectures/04/index.html </guid>
+  <description>
+    <![CDATA[  In this lecture we will go over the basic properties of dynamical systems and understand their general behavior through code.  ]]>
+  </description>  
+    
+  <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Chris Rackauckas</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Introduction to Scientific Machine Learning through Physics-Informed Neural Networks  ]]>
+  </title>
+  <link> https://book.sciml.ai/lectures/03/index.html </link>
+  <guid> https://book.sciml.ai/lectures/03/index.html </guid>
+  <description>
+    <![CDATA[  Here we will start to dig into what scientific machine learning is all about by looking at physics-informed neural networks.  ]]>
+  </description>  
+    
+  <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Chris Rackauckas</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>

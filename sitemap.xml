@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+    <loc>https://book.sciml.ai/404/index.html</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/lectures/02/index.html</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/index.html</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/lectures/04/index.html</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/lectures/03/index.html</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/_weave/lecture03/sciml/</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/_weave/lecture02/optimizing/</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://book.sciml.ai/_weave/lecture04/dynamical_systems/</loc>
+    <lastmod>2022-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+</urlset>
