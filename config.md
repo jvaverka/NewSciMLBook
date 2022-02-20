@@ -4,6 +4,7 @@ author = "Chris Rackauckas"
 mintoclevel = 2
 maxtoclevel = 3
 weave = false
+prepath = "/NewSciMLBook/"
 ignore = ["node_modules/"]
 generate_rss = true
 website_title = "SciML Book"
