@@ -28,3 +28,19 @@ function lx_weave(com, _)
 
     return join(lines, '\n')
 end
+
+"""
+    weaveall()
+
+Weave all lecture notes in the `_weave` directory. Run from site root.
+"""
+function weaveall()
+    for (root, dirs, files) in walkdir("_weave")
+        for file in files
+            if endswith(file, "jmd")
+                println("Found Weave Doc: $(joinpath(root, file))")
+                weave(joinpath(root, file); out_path=:doc)
+            end
+        end
+    end
+end
