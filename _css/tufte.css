@@ -391,6 +391,8 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
   img { width: 100%; }
 }
 
-p.footer {
+.footer {
   text-align: center;
+  border-top-style: ridge;
+  border-width: thin;
 }
