@@ -2,6 +2,10 @@
 title: Introduction to Scientific Machine Learning through Physics-Informed Neural Networks
 author: Chris Rackauckas
 date: September 8th, 2020
+weave_options:
+    doctype: md2html
+    highlight: pygments
+    template: ../../sciml.tpl
 ---
 
 Here we will start to dig into what scientific machine learning is all about
