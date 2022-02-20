@@ -758,11 +758,11 @@ g(MyComplex(1.0,1.0),MyComplex(1.0,1.0))
 
 ```julia
 @code_warntype g(MyComplex(1.0,1.0),MyComplex(1.0,1.0))
-````
+```
 
 ```julia
 @code_llvm g(MyComplex(1.0,1.0),MyComplex(1.0,1.0))
-````
+```
 
 Note that the compiled code simply works directly on the `double` pieces.
 We can also make this be concrete without pre-specifying that the values always
@@ -788,18 +788,18 @@ g(MyParameterizedComplex(1.0,1.0),MyParameterizedComplex(1.0,1.0))
 
 ```julia
 @code_warntype g(MyParameterizedComplex(1.0,1.0),MyParameterizedComplex(1.0,1.0))
-````
+```
 
 See that this code also automatically works and compiles efficiently for
 `Float32` as well:
 
 ```julia
 @code_warntype g(MyParameterizedComplex(1.0f0,1.0f0),MyParameterizedComplex(1.0f0,1.0f0))
-````
+```
 
 ```julia
 @code_llvm g(MyParameterizedComplex(1.0f0,1.0f0),MyParameterizedComplex(1.0f0,1.0f0))
-````
+```
 
 It is important to know that if there is any piece of a type which doesn't
 contain type information, then it cannot be isbits because then it would have
@@ -822,7 +822,7 @@ g(MySlowComplex(1.0,1.0),MySlowComplex(1.0,1.0))
 
 ```julia
 @code_warntype g(MySlowComplex(1.0,1.0),MySlowComplex(1.0,1.0))
-````
+```
 
 ```julia
 @code_llvm g(MySlowComplex(1.0,1.0),MySlowComplex(1.0,1.0))

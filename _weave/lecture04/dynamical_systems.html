@@ -1,12 +1,9 @@
 
-<div class = "franklin-content">
-  <div class="title">
-    <h1 class="title">How Loops Work, An Introduction to Discrete Dynamics</h1>
-    <h5>Chris Rackauckas</h5>
-    <h5>September 15th, 2020</h5>
-  </div>
+<h1 class="title">How Loops Work, An Introduction to Discrete Dynamics</h1>
+<h5>Chris Rackauckas</h5>
+<h5>September 15th, 2020</h5>
 
-  <p>As we saw with the physics-informed neural networks, the basics of most scientific models are dynamical systems. Thus if we want to start to dig into deeper methods, we will need to start looking into the theory and practice of nonlinear dynamical systems. In this lecture we will go over the basic properties of dynamical systems and understand their general behavior through code. We will also learn the idea of stability as an asymtopic property of a mapping, and understand when a system is stable.</p>
+<p>As we saw with the physics-informed neural networks, the basics of most scientific models are dynamical systems. Thus if we want to start to dig into deeper methods, we will need to start looking into the theory and practice of nonlinear dynamical systems. In this lecture we will go over the basic properties of dynamical systems and understand their general behavior through code. We will also learn the idea of stability as an asymtopic property of a mapping, and understand when a system is stable.</p>
 <h2>Discrete Dynamical Systems</h2>
 <p>A discrete dynamical system is a system which updates through discrete updates:</p>
 <p class="math">\[
@@ -430,7 +427,7 @@ NaN
 
 
 <pre class="output">
-0.000037 seconds &#40;1.00 k allocations: 86.062 KiB&#41;
+0.000033 seconds &#40;1.00 k allocations: 86.062 KiB&#41;
 1000-element Vector&#123;Vector&#123;Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -462,7 +459,7 @@ NaN
 
 
 <pre class="output">
-0.014728 seconds &#40;25.22 k allocations: 1.445 MiB, 99.61&#37; compilation time
+0.013083 seconds &#40;25.22 k allocations: 1.445 MiB, 99.56&#37; compilation time
 &#41;
 1000-element Vector&#123;Vector&#123;Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
@@ -497,7 +494,7 @@ NaN
 
 
 <pre class="output">
-0.000063 seconds &#40;1.01 k allocations: 99.984 KiB&#41;
+0.000045 seconds &#40;1.01 k allocations: 99.984 KiB&#41;
 1000-element Vector&#123;Vector&#123;Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -532,7 +529,7 @@ NaN
 
 
 <pre class="output">
-25.541 μs &#40;1001 allocations: 86.06 KiB&#41;
+26.135 μs &#40;1001 allocations: 86.06 KiB&#41;
 1000-element Vector&#123;Vector&#123;Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -564,7 +561,7 @@ NaN
 
 
 <pre class="output">
-33.474 μs &#40;1006 allocations: 99.98 KiB&#41;
+31.313 μs &#40;1006 allocations: 99.98 KiB&#41;
 1000-element Vector&#123;Vector&#123;Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -607,7 +604,7 @@ NaN
 
 
 <pre class="output">
-56.537 μs &#40;2001 allocations: 179.66 KiB&#41;
+52.455 μs &#40;2001 allocations: 179.66 KiB&#41;
 3×1000 Matrix&#123;Float64&#125;:
  1.0  0.8   0.752    0.80096   0.920338   …   1.98201    1.67886    1.4744
  0.0  0.56  0.9968   1.39785   1.81805        0.466287   0.656559   0.85300
@@ -633,7 +630,7 @@ NaN
 
 
 <pre class="output">
-32.387 μs &#40;1002 allocations: 101.61 KiB&#41;
+31.275 μs &#40;1002 allocations: 101.61 KiB&#41;
 3×1000 Matrix&#123;Float64&#125;:
  1.0  0.8   0.752    0.80096   0.920338   …   1.98201    1.67886    1.4744
  0.0  0.56  0.9968   1.39785   1.81805        0.466287   0.656559   0.85300
@@ -659,7 +656,7 @@ NaN
 
 
 <pre class="output">
-769.739 μs &#40;2318 allocations: 11.65 MiB&#41;
+774.366 μs &#40;2318 allocations: 11.65 MiB&#41;
 3×1000 Matrix&#123;Float64&#125;:
  1.0  0.8   0.752    0.80096   0.920338   …   1.98201    1.67886    1.4744
  0.0  0.56  0.9968   1.39785   1.81805        0.466287   0.656559   0.85300
@@ -807,7 +804,7 @@ NaN
 
 
 <pre class="output">
-24.692 μs &#40;1000 allocations: 78.12 KiB&#41;
+24.347 μs &#40;1000 allocations: 78.12 KiB&#41;
 3-element Vector&#123;Float64&#125;:
   1.4744010677851374
   0.8530017039412324
@@ -822,7 +819,7 @@ NaN
 
 
 <pre class="output">
-5.596 μs &#40;3 allocations: 240 bytes&#41;
+5.471 μs &#40;3 allocations: 240 bytes&#41;
 3-element Vector&#123;Float64&#125;:
   1.4744010677851374
   0.8530017039412324
@@ -887,7 +884,7 @@ NaN
 
 
 <pre class="output">
-4.520 μs &#40;2 allocations: 23.48 KiB&#41;
+4.453 μs &#40;2 allocations: 23.48 KiB&#41;
 1000-element Vector&#123;StaticArrays.SVector&#123;3, Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -969,7 +966,7 @@ NaN
 
 
 <pre class="output">
-4.332 μs &#40;2 allocations: 23.48 KiB&#41;
+4.354 μs &#40;2 allocations: 23.48 KiB&#41;
 1000-element Vector&#123;StaticArrays.SVector&#123;3, Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -1029,7 +1026,7 @@ NaN
 
 
 <pre class="output">
-4.483 μs &#40;0 allocations: 0 bytes&#41;
+4.188 μs &#40;0 allocations: 0 bytes&#41;
 1000-element Vector&#123;StaticArrays.SVector&#123;3, Float64&#125;&#125;:
  &#91;1.0, 0.0, 0.0&#93;
  &#91;0.8, 0.56, 0.0&#93;
@@ -1066,10 +1063,9 @@ NaN
 </ol>
 
 
-  <div class="footer">
-    <p>
-      Published from <a href="dynamical_systems.jmd">dynamical_systems.jmd</a>
-      using <a href="http://github.com/JunoLab/Weave.jl">Weave.jl</a> v0.10.10 on 2022-02-19.
-    </p>
-  </div>
+<div class="footer">
+  <p>
+    Published from <a href="dynamical_systems.jmd">dynamical_systems.jmd</a>
+    using <a href="http://github.com/JunoLab/Weave.jl">Weave.jl</a> v0.10.10 on 2022-02-20.
+  </p>
 </div>
