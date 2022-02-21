@@ -240,7 +240,7 @@ figure.fullwidth figcaption { margin-right: 24%; }
 
 /* Links: replicate underline that clears descenders */
 a:link { color: var(--color-blue); }
-a:visited { color: var(--color-purple); }
+a:visited { color: var(--color-green); }
 
 
 a:link {
