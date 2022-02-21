@@ -11,7 +11,7 @@ function weaveall()
     for (root, _, files) in walkdir("_weave")
         for file in files
             if endswith(file, "jmd")
-                println("Weaving Document: $(joinpath(root, file))")
+                @info "Weaving Document: $(joinpath(root, file))"
                 weave(joinpath(root, file); out_path=:doc)
             end
         end
@@ -22,13 +22,13 @@ end
 """
     cleanall()
 
-Cleanup all Weave generated subdirectories.
+Cleanup all Weave generated subdirectories. Run from site root.
 """
 function cleanall()
     for (root, dirs, _) in walkdir("_weave")
         for dir in dirs
             if startswith(dir, "jl_")
-                println("Removing Directory: $(joinpath(root, dir))")
+                @info "Removing Directory: $(joinpath(root, dir))"
                 rm(joinpath(root, dir); recursive=true, force=true)
             end
         end
