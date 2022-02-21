@@ -10,9 +10,9 @@ weave_options:
 
 Due November 5th, 2020 at midnight.
 
-Please email the results to 18337.mit.psets@gmail.com.
+Please email the results to `18337.mit.psets@gmail.com`.
 
-# Problem 1: Parameter Estimation in Dynamical Systems
+## Problem 1: Parameter Estimation in Dynamical Systems
 
 In this problem you will work through the development of a parameter estimation
 method for the Lotka-Volterra equations. This is intended to be "from scratch",
@@ -57,26 +57,26 @@ the L2 loss against the data as a cost function, and use the forward sensitivity
 equations to implement gradient descent and optimize the cost function to
 retreive the true parameters
 
-# Problem 2: Bandwidth Maximization
+## Problem 2: Bandwidth Maximization
 
 In this problem we will look at maximizing the bandwidth of a channel, and the
 difference when going from serial to parallel computing.
 
-## Part 1: Serial Bandwidth
+### Part 1: Serial Bandwidth
 
 Recreate the bandwidth vs message size plot by doing the following. Create
 two processes on one node and communicate using MPI. Have
 both processes send an array of `2^n` `Int8` values. Compute the time `T(n)`
 of sending each message size and the bandwidth `B(n) = n/T(n)` for `n=1:25`.
 
-## Part 2: Interpretation
+### Part 2: Interpretation
 
 Given these plots, what is the minimal latency? What is the total bandwidth?
 What is the number of operations needed for small messages and large messages
 on each value in order for a calculation to be efficient enough to overcome
 the message passing cost?
 
-## Part 3: Parallel Bandwith (Optional)
+### Part 3: Parallel Bandwith (Optional)
 
 Use the following batch script on some cluster (like MIT Supercloud):
 
