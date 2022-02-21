@@ -3,7 +3,7 @@
 <h5>Chris Rackauckas</h5>
 <h5>October 5th, 2020</h5>
 
-<h1>Machine Epsilon and Roundoff Error</h1>
+<h2>Machine Epsilon and Roundoff Error</h2>
 <p>Floating point arithmetic is relatively scaled, which means that the precision that you get from calculations is relative to the size of the floating point numbers. Generally, you have 16 digits of accuracy in &#40;64-bit&#41; floating point operations. To measure this, we define <em>machine epsilon</em> as the value by which <code>1 &#43; E &#61; 1</code>. For floating point numbers, this is:</p>
 
 
@@ -49,14 +49,14 @@ eps&#40;0.01&#41; &#61; 1.734723475976807e-18
 
 
 <pre class="output">
-ϵ &#61; 4.420697082473002e-11
-1 &#43; ϵ &#61; 1.0000000000442069
-1.1043020553961208e-16
+ϵ &#61; 1.586000033082401e-11
+1 &#43; ϵ &#61; 1.00000000001586
+2.03348437994878e-17
 </pre>
 
 
 <p>See how <span class="math">$\epsilon$</span> is only rebuilt at accuracy around <span class="math">$10^{-16}$</span> and thus we only keep around 6 digits of accuracy when it&#39;s generated at the size of around <span class="math">$10^{-10}$</span>&#33;</p>
-<h2>Finite Differencing and Numerical Stability</h2>
+<h3>Finite Differencing and Numerical Stability</h3>
 <p>To start understanding how to compute derivatives on a computer, we start with <em>finite differencing</em>. For finite differencing, recall that the definition of the derivative is:</p>
 <p class="math">\[
 f'(x) = \lim_{\epsilon \rightarrow 0} \frac{f(x+\epsilon)-f(x)}{\epsilon}
@@ -82,7 +82,7 @@ sqrt&#40;eps&#40;Float64&#41;&#41; &#61; 1.4901161193847656e-8
 <p>This means we should not expect better than 8 digits of accuracy, even when things are good with finite differencing.</p>
 <p><img src="http://degenerateconic.com/wp-content/uploads/2014/11/complex_step1.png" alt="" /></p>
 <p>The centered difference formula is a little bit better, but this picture suggests something much better...</p>
-<h2>Differencing in a Different Dimension: Complex Step Differentiation</h2>
+<h3>Differencing in a Different Dimension: Complex Step Differentiation</h3>
 <p>The problem with finite differencing is that we are mixing our really small number with the really large number, and so when we do the subtract we lose accuracy. Instead, we want to keep the small perturbation completely separate.</p>
 <p>To see how to do this, assume that <span class="math">$x \in \mathbb{R}$</span> and assume that <span class="math">$f$</span> is complex analytic. You want to calculate a real derivative, but your function just happens to also be complex analytic when extended to the complex plane. Thus it has a Taylor series, and let&#39;s see what happens when we expand out this Taylor series purely in the complex direction:</p>
 <p class="math">\[
@@ -98,7 +98,7 @@ f'(x) = \frac{Im(f(x+ih))}{h} + \mathcal{O}(h)
 \]</p>
 <p>since <span class="math">$Im(f(x)) = 0$</span> &#40;since it&#39;s real valued&#33;&#41;. Thus with a sufficiently small choice of <span class="math">$h$</span>, this is the <em>complex step differentiation</em> formula for calculating the derivative.</p>
 <p>But to understand the computational advantage, recal that <span class="math">$x$</span> is pure real, and thus <span class="math">$x+ih$</span> is an imaginary number where <strong>the <span class="math">$h$</span> never directly interacts with <span class="math">$x$</span></strong> since a complex number is a two dimensional number where you keep the two pieces separate. Thus there is no numerical cancellation by using a small value of <span class="math">$h$</span>, and thus, due to the relative precision of floating point numbers, both the real and imaginary parts will be computed to &#40;approximately&#41; 16 digits of accuracy for any choice of <span class="math">$h$</span>.</p>
-<h2>Derivatives as nilpotent sensitivities</h2>
+<h3>Derivatives as nilpotent sensitivities</h3>
 <p>The derivative measures the <strong>sensitivity</strong> of a function, i.e. how much the function output changes when the input changes by a small amount <span class="math">$\epsilon$</span>:</p>
 <p class="math">\[
 f(a + \epsilon) = f(a) + f'(a) \epsilon + o(\epsilon).
@@ -109,7 +109,7 @@ f(a + \epsilon) = f(a) + f'(a) \epsilon + o(\epsilon).
 f \rightsquigarrow f(a) + \epsilon f'(a)
 \]</p>
 <p>Conversely, if we have such an expansion in <span class="math">$\epsilon$</span> for a given function <span class="math">$f$</span>, then we can identify the coefficient of <span class="math">$\epsilon$</span> as the derivative of <span class="math">$f$</span>.</p>
-<h2>Dual numbers</h2>
+<h3>Dual numbers</h3>
 <p>Thus, to extend the idea of complex step differentiation beyond complex analytic functions, we define a new number type, the <em>dual number</em>. A dual number is a multidimensional number where the sensitivity of the function is propagated along the dual portion.</p>
 <p>Here we will now start to use <span class="math">$\epsilon$</span> as a dimensional signifier, like <span class="math">$i$</span>, <span class="math">$j$</span>, or <span class="math">$k$</span> for quaternion numbers. In order for this to work out, we need to derive an appropriate algebra for our numbers. To do this, we will look at Taylor series to make our algebra reconstruct differentiation.</p>
 <p>Note that the chain rule has been explicitly encoded in the derivative part.</p>
@@ -131,7 +131,7 @@ g \rightsquigarrow g(a) + \epsilon g'(a)
 (f \cdot g) = [f(a) \cdot g(a)] + \epsilon[f(a) \cdot g'(a) + g(a) \cdot f'(a) ]
 \]</p>
 <p>From these we can <em>infer</em> the derivatives by taking the component of <span class="math">$\epsilon$</span>. These also tell us the way to implement these in the computer.</p>
-<h2>Computer representation</h2>
+<h3>Computer representation</h3>
 <p>Setup &#40;not necessary from the REPL&#41;:</p>
 
 
@@ -197,7 +197,7 @@ f::Dual + g::Dual = Dual(f.val + g.val, f.der + g.der)
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;8, 10&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;8, 10&#41;
 </pre>
 
 
@@ -208,7 +208,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;8, 10&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;15, 38&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;15, 38&#41;
 </pre>
 
 
@@ -219,11 +219,11 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;15, 38&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;30, 76&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;30, 76&#41;
 </pre>
 
 
-<h2>Performance</h2>
+<h3>Performance</h3>
 <p>It seems like we may have introduced significant computational overhead by creating a new data structure, and associated methods. Let&#39;s see how the performance is:</p>
 
 
@@ -248,7 +248,7 @@ add &#40;generic function with 1 method&#41;
 
 
 <pre class="output">
-1.447 ns &#40;0 allocations: 0 bytes&#41;
+1.350 ns &#40;0 allocations: 0 bytes&#41;
 &#40;4, 6&#41;
 </pre>
 
@@ -265,8 +265,8 @@ add &#40;generic function with 1 method&#41;
 
 
 <pre class="output">
-1.446 ns &#40;0 allocations: 0 bytes&#41;
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;4, 6&#41;
+1.128 ns &#40;0 allocations: 0 bytes&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;4, 6&#41;
 </pre>
 
 
@@ -315,7 +315,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;4, 6&#41;
 
 
 <p>We see that the data structure itself has disappeared, and we basically have a standard Julia tuple.</p>
-<h2>Defining Higher Order Primitives</h2>
+<h3>Defining Higher Order Primitives</h3>
 <p>We can also define functions of <code>Dual</code> objects, using the chain rule. To speed up our derivative function, we can directly hardcode the derivative of known functions which we call <em>primitives</em>. If <code>f</code> is a <code>Dual</code> representing the function <span class="math">$f$</span>, then <code>exp&#40;f&#41;</code> should be a <code>Dual</code> representing the function <span class="math">$\exp \circ f$</span>, i.e. with value <span class="math">$\exp(f(a))$</span> and derivative <span class="math">$(\exp \circ f)'(a) = \exp(f(a)) \, f'(a)$</span>:</p>
 
 
@@ -332,7 +332,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;4, 6&#41;
 
 
 <pre class="output">
-exp &#40;generic function with 48 methods&#41;
+exp &#40;generic function with 15 methods&#41;
 </pre>
 
 
@@ -343,7 +343,7 @@ exp &#40;generic function with 48 methods&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;3, 4&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;3, 4&#41;
 </pre>
 
 
@@ -354,12 +354,12 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;3, 4&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Float64&#125;&#40;20.085536923187668, 80.3421476927506
-7&#41;
+Main.##WeaveSandBox#274.Dual&#123;Float64&#125;&#40;20.085536923187668, 80.34214769275067
+&#41;
 </pre>
 
 
-<h1>Differentiating arbitrary functions</h1>
+<h2>Differentiating arbitrary functions</h2>
 <p>For functions where we don&#39;t have a rule, we can recursively do dual number arithmetic within the function until we hit primitives where we know the derivative, and then use the chain rule to propagate the information back up. Under this algebra, we can represent <span class="math">$a + \epsilon$</span> as <code>Dual&#40;a, 1&#41;</code>. Thus, applying <code>f</code> to <code>Dual&#40;a, 1&#41;</code> should give <code>Dual&#40;f&#40;a&#41;, f&#39;&#40;a&#41;&#41;</code>. This is thus a 2-dimensional number for calculating the derivative without floating point error, <strong>using the compiler to transform our equations into dual number arithmetic</strong>. To to differentiate an arbitrary function, we define a generic function and then change the algebra.</p>
 
 
@@ -371,7 +371,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Float64&#125;&#40;20.085536923187668, 80.3421
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;3, 1&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;3, 1&#41;
 </pre>
 
 
@@ -384,7 +384,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;3, 1&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Int64&#125;&#40;11, 6&#41;
+Main.##WeaveSandBox#274.Dual&#123;Int64&#125;&#40;11, 6&#41;
 </pre>
 
 
@@ -437,12 +437,12 @@ derivative &#40;generic function with 1 method&#41;
 newtons&#40;2.0&#41; &#61; 1.414213562373095
 &#40;newtons&#40;2.0 &#43; sqrt&#40;eps&#40;&#41;&#41;&#41; - newtons&#40;2.0&#41;&#41; / sqrt&#40;eps&#40;&#41;&#41; &#61; 0.3535533994436
 264
-Main.##WeaveSandBox#2480.Dual&#123;Float64&#125;&#40;1.414213562373095, 0.353553390593273
-73&#41;
+Main.##WeaveSandBox#274.Dual&#123;Float64&#125;&#40;1.414213562373095, 0.3535533905932737
+3&#41;
 </pre>
 
 
-<h2>Higher dimensions</h2>
+<h3>Higher dimensions</h3>
 <p>How can we extend this to higher dimensional functions? For example, we wish to differentiate the following function <span class="math">$f: \mathbb{R}^2 \to \mathbb{R}$</span>:</p>
 
 
@@ -493,7 +493,7 @@ ff_1 &#40;generic function with 1 method&#41;
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.Dual&#123;Float64&#125;&#40;21.0, 10.0&#41;
+Main.##WeaveSandBox#274.Dual&#123;Float64&#125;&#40;21.0, 10.0&#41;
 </pre>
 
 
@@ -513,7 +513,7 @@ Main.##WeaveSandBox#2480.Dual&#123;Float64&#125;&#40;21.0, 10.0&#41;
 
 
 <p>Note that we must do <strong>two separate calculations</strong> to get the two partial derivatives; in general, calculating the gradient <span class="math">$\nabla$</span> of a function <span class="math">$f:\mathbb{R}^n \to \mathbb{R}$</span> requires <span class="math">$n$</span> separate calculations.</p>
-<h2>Implementation of higher-dimensional forward-mode AD</h2>
+<h3>Implementation of higher-dimensional forward-mode AD</h3>
 <p>We can implement derivatives of functions <span class="math">$f: \mathbb{R}^n \to \mathbb{R}$</span> by adding several independent partial derivative components to our dual numbers.</p>
 <p>We can think of these as <span class="math">$\epsilon$</span> perturbations in different directions, which satisfy <span class="math">$\epsilon_i^2 = \epsilon_i \epsilon_j = 0$</span>, and we will call <span class="math">$\epsilon$</span> the vector of all perturbations. Then we have</p>
 <p class="math">\[
@@ -554,7 +554,7 @@ f(a + \epsilon) = f(a) + \nabla f(a) \cdot \epsilon + \mathcal{O}(\epsilon^2),
 
 
 <pre class="output">
-* &#40;generic function with 1170 methods&#41;
+* &#40;generic function with 390 methods&#41;
 </pre>
 
 
@@ -572,7 +572,7 @@ f(a + \epsilon) = f(a) + \nabla f(a) \cdot \epsilon + \mathcal{O}(\epsilon^2),
 
 
 <pre class="output">
-Main.##WeaveSandBox#2480.MultiDual&#123;2, Float64&#125;&#40;5.0, &#91;5.0, 2.0&#93;&#41;
+Main.##WeaveSandBox#274.MultiDual&#123;2, Float64&#125;&#40;5.0, &#91;5.0, 2.0&#93;&#41;
 </pre>
 
 
@@ -587,10 +587,10 @@ Main.##WeaveSandBox#2480.MultiDual&#123;2, Float64&#125;&#40;5.0, &#91;5.0, 2.0&
 
 
 <pre class="output">
-2-element StaticArrays.SVector&#123;2, Main.##WeaveSandBox#2480.MultiDual&#123;2, Flo
-at64&#125;&#125; with indices SOneTo&#40;2&#41;:
- Main.##WeaveSandBox#2480.MultiDual&#123;2, Float64&#125;&#40;5.0, &#91;2.0, 4.0&#93;&#41;
- Main.##WeaveSandBox#2480.MultiDual&#123;2, Float64&#125;&#40;3.0, &#91;1.0, 1.0&#93;&#41;
+2-element StaticArrays.SVector&#123;2, Main.##WeaveSandBox#274.MultiDual&#123;2, Floa
+t64&#125;&#125; with indices SOneTo&#40;2&#41;:
+ Main.##WeaveSandBox#274.MultiDual&#123;2, Float64&#125;&#40;5.0, &#91;2.0, 4.0&#93;&#41;
+ Main.##WeaveSandBox#274.MultiDual&#123;2, Float64&#125;&#40;3.0, &#91;1.0, 1.0&#93;&#41;
 </pre>
 
 
@@ -612,7 +612,7 @@ at64&#125;&#125; with indices SOneTo&#40;2&#41;:
 </pre>
 
 
-<h2>Directional derivative and gradient of functions <span class="math">$f: \mathbb{R}^n \to \mathbb{R}$</span></h2>
+<h3>Directional derivative and gradient of functions <span class="math">$f: \mathbb{R}^n \to \mathbb{R}$</span></h3>
 <p>For a function <span class="math">$f: \mathbb{R}^n \to \mathbb{R}$</span> the basic operation is the <strong>directional derivative</strong>:</p>
 <p class="math">\[
 \lim_{\epsilon \to 0} \frac{f(\mathbf{x} + \epsilon \mathbf{v}) - f(\mathbf{x})}{\epsilon} =
@@ -632,7 +632,7 @@ f(x_0 + a\epsilon, y_0 + b\epsilon) &= (x_0 + a\epsilon)^2  \sin(y_0 + b\epsilon
 <p>so we have indeed calculated <span class="math">$\nabla f(x_0, y_0) \cdot \mathbf{v},$</span> where <span class="math">$\mathbf{v} = (a, b)$</span> are the components that we put into the derivative component of the <code>Dual</code> numbers.</p>
 <p>If we wish to calculate the directional derivative in another direction, we could repeat the calculation with a different <span class="math">$\mathbf{v}$</span>. A better solution is to use another independent epsilon <span class="math">$\epsilon$</span>, expanding <span class="math">$x = x_0 + a_1 \epsilon_1 + a_2 \epsilon_2$</span> and putting <span class="math">$\epsilon_1 \epsilon_2 = 0$</span>.</p>
 <p>In particular, if we wish to calculate the gradient itself, <span class="math">$\nabla f(x_0, y_0)$</span>, we need to calculate both partial derivatives, which corresponds to two directional derivatives, in the directions <span class="math">$(1, 0)$</span> and <span class="math">$(0, 1)$</span>, respectively.</p>
-<h2>Forward-Mode AD as jvp</h2>
+<h3>Forward-Mode AD as jvp</h3>
 <p>Note that another representation of the directional derivative is <span class="math">$f'(x)v$</span>, where <span class="math">$f'(x)$</span> is the Jacobian or total derivative of <span class="math">$f$</span> at <span class="math">$x$</span>. To see the equivalence of this to a directional derivative, write it out in the standard basis:</p>
 <p class="math">\[
 w_i = \sum_{j}^{m} J_{ij} v_{j}
@@ -655,7 +655,7 @@ f(d) = f(d_0) + f'(d_0)v_1 \epsilon_1 + f'(d_0)v_2 \epsilon_2
 <p class="math">\[
 d = d_0 + v_1 \epsilon_1 + v_2 \epsilon_2 + \ldots + v_m \epsilon_m
 \]</p>
-<h2>Jacobian</h2>
+<h3>Jacobian</h3>
 <p>For a function <span class="math">$f: \mathbb{R}^n \to \mathbb{R}^m$</span>, we reduce &#40;conceptually, although not necessarily in code&#41; to its component functions <span class="math">$f_i: \mathbb{R}^n \to \mathbb{R}$</span>, where <span class="math">$f(x) = (f_1(x), f_2(x), \ldots, f_m(x))$</span>.</p>
 <p>Then</p>
 <p class="math">\[
@@ -674,7 +674,7 @@ d = d_0 + e_1 \epsilon_1 + \ldots + e_n \epsilon_n
 f(d) = f(d_0) + Je_1 \epsilon_1 + \ldots + Je_n \epsilon_n
 \]</p>
 <p>computes all columns of the Jacobian simultaniously.</p>
-<h2>Array of Structs Representation</h2>
+<h3>Array of Structs Representation</h3>
 <p>Instead of thinking about a vector of dual numbers, thus we can instead think of dual numbers with vectors for the components. But if there are vectors for the components, then we can think of the grouping of dual components as a matrix. Thus define our multidimensional multi-partial dual number as:</p>
 <p>D0 &#61; &#91;d1,d2,d3,...,dn&#93; Sigma &#61; &#91;d11 d21 d31          d12 ...          ...&#93; epsilon &#61; &#91;epsilon<em>1,epsilon</em>2,...,epsilon<em>m&#93; &#36;D &#61; D</em>0 &#43; \Sigma \epsilon&#36;</p>
 <p>where <span class="math">$D_0$</span> is a vector in <span class="math">$\mathbb{R}^n$</span>, <span class="math">$\epsilon$</span> is a vector of dimensional signifiers and <span class="math">$\Sigma$</span> is a matrix in <span class="math">$\mathbb{R}^{n \times m}$</span> where <span class="math">$m$</span> is the number of concurrent differentiation dimensions. Each row of this is a dual number, but now we can use this to easily define higher dimensional primitives.</p>
@@ -687,7 +687,7 @@ f(D) = A*D_0 + A*\Sigma*\epsilon
 f(D) = f(D_0) + f'(D_0)\Sigma \epsilon
 \]</p>
 <p>where <span class="math">$f'$</span> is the total derivative or the Jacobian of <span class="math">$f$</span>. This then allows our system to be highly efficient by allowing the definition of multidimensional functions, like linear algebra, to be primitives of multi-directional derivatives.</p>
-<h2>Higher derivatives</h2>
+<h3>Higher derivatives</h3>
 <p>The above techniques can be extended to higher derivatives by <em>adding more terms to the Taylor polynomial</em>, e.g.</p>
 <p class="math">\[
 f(a + \epsilon) = f(a) + \epsilon f'(a) + \frac{1}{2} \epsilon^2 f''(a) + o(\epsilon^2).
@@ -698,7 +698,7 @@ f(a + \epsilon) = f(a) + \epsilon f'(a) + \frac{1}{2} \epsilon^2 f''(a) + o(\eps
 f(x + \epsilon v) = f(x) + \epsilon \left[ \sum_i (\partial_i f)(x) v_i \right] + \frac{1}{2}\epsilon^2 \left[ \sum_i \sum_j (\partial_{i,j} f) v_i v_j \right]
 \]</p>
 <p>using <code>Dual</code> numbers with a single <span class="math">$\epsilon$</span> component. In this way we can compute coefficients of the &#40;symmetric&#41; Hessian matrix.</p>
-<h1>Application: solving nonlinear equations using the Newton method</h1>
+<h2>Application: solving nonlinear equations using the Newton method</h2>
 <p>As an application, we will see how to solve nonlinear equations of the form <span class="math">$f(x) = 0$</span> for functions <span class="math">$f: \mathbb{R}^n \to \mathbb{R}^n$</span>.</p>
 <p>Since in general we cannot do anything with nonlinearity, we try to reduce it &#40;approximate it&#41; with something linear. Furthermore, in general we know that it is not possible to solve nonlinear equations in closed form &#40;even for polynomials of degree <span class="math">$\ge 5$</span>&#41;, so we will need some kind of iterative method.</p>
 <p>We start from an initial guess <span class="math">$x_0$</span>. The idea of the <strong>Newton method</strong> is to follow the tangent line to the function <span class="math">$f$</span> at the point <span class="math">$x_0$</span> and find where it intersects the <span class="math">$x$</span>-axis; this will give the next iterate <span class="math">$x_1$</span>.</p>
@@ -772,9 +772,9 @@ x &#61; &#91;0.7071067811865476, 0.7071067811865476&#93;
 </pre>
 
 
-<h1>Conclusion</h1>
+<h2>Conclusion</h2>
 <p>To make derivative calculations efficient and correct, we can move to higher dimensional numbers. In multiple dimensions, these then allow for multiple directional derivatives to be computed simultaniously, giving a method for computing the Jacobian of a function <span class="math">$f$</span> on a single input. This is a direct application of using the compiler as part of a mathematical framework.</p>
-<h2>References</h2>
+<h3>References</h3>
 <ul>
 <li><p>John L. Bell, <em>An Invitation to Smooth Infinitesimal Analysis</em>, http://publish.uwo.ca/~jbell/invitation&#37;20to&#37;20SIA.pdf</p>
 </li>
@@ -791,6 +791,6 @@ x &#61; &#91;0.7071067811865476, 0.7071067811865476&#93;
 <div class="footer">
   <p>
     Published from <a href="automatic_differentiation.jmd">automatic_differentiation.jmd</a>
-    using <a href="http://github.com/JunoLab/Weave.jl">Weave.jl</a> v0.10.10 on 2022-02-20.
+    using <a href="http://github.com/JunoLab/Weave.jl">Weave.jl</a> v0.10.10 on 2022-02-21.
   </p>
 </div>

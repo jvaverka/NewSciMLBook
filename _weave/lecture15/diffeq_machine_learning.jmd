@@ -33,7 +33,7 @@ And there are some scattered packages in other languages to note too, such as:
 and many more. This lecture is a quick servey on different directions that
 people have taken so far in this field. It is by no means comprehensive.
 
-### The Augmented Neural Ordinary Differential Equation
+## The Augmented Neural Ordinary Differential Equation
 
 Note that not every function can be represented by an ordinary differential
 equation. Specifically, $u(t)$ is an $\mathbb{R} \rightarrow \mathbb{R}^n$ function
