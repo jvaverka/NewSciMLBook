@@ -8,6 +8,10 @@
   --small: 14px;
   --normal: 19px;
   --text-color: hsv(0, 0%, 20%);
+  --color-red:        #cb3c33;
+  --color-green:      #389826;
+  --color-purple:     #9558b2;
+  --color-blue:       #4063d8;
 }
 
 /* ==================================================================
@@ -55,19 +59,23 @@ html {
 
 .franklin-content .page-foot a {
   text-decoration: none;
-  color: #a6a2a0;
-  text-decoration: underline;
 }
 
 .page-foot {
-  font-size: 80%;
-  font-family: Arial, serif;
-  color: #a6a2a0;
+  font-size: 90%;
+  opacity: 85%;
+  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  color: inherit;
   text-align: center;
   margin-top: 6em;
   border-top: 1px solid lightgrey;
   padding-top: 2em;
   margin-bottom: 4em;
+}
+
+.footer p {
+  font-size: 90%;
+  opacity: 85%;
 }
 
 /* ==================================================================
@@ -124,6 +132,7 @@ h6 {
 }
 
 .franklin-content h1 {
+  color: var(--color-purple);
   padding-bottom: 0.5em;
   /* border-bottom: 3px double lightgrey; */
   margin-top: 1.5em;
@@ -196,7 +205,7 @@ td {
 }
 
 .franklin-content a {
-  color: #004de6;
+  color: var(--color-blue);
   text-decoration: none;
 }
 
@@ -208,8 +217,8 @@ td {
     HYPERREFS AND FOOTNOTES
 ================================================================== */
 
-.franklin-content .eqref a { color: green; }
-.franklin-content .bibref a { color: green; }
+.franklin-content .eqref a { color: var(--color-green); }
+.franklin-content .bibref a { color: var(--color-green); }
 
 .franklin-content sup {
   font-size: 70%;
@@ -321,11 +330,11 @@ code {
 .hljs-metas,
 .hljs-metap { font-weight: bold; }
 
-.hljs-meta { color: rgb(25, 179, 51); }
+.hljs-meta { color: var(--color-green); }
 
-.hljs-metas { color: red; }
+.hljs-metas { color: var(--color-red); }
 
-.hljs-metap { color: rgb(51, 131, 231); }
+.hljs-metap { color: var(--color-blue); }
 
 .code-output {
   background: var(--output-background);
@@ -346,5 +355,5 @@ code {
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 0 10px 10px 0;
-  border-left: 5px solid #4c9cf1;
+  border-left: 5px solid var(--color-blue);
 }
