@@ -2,7 +2,7 @@
 +++
 author = "Chris Rackauckas"
 mintoclevel = 2
-maxtoclevel = 3
+maxtoclevel = 6
 weave = false
 prepath = "/NewSciMLBook/"
 ignore = ["node_modules/"]

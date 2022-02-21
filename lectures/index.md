@@ -3,11 +3,15 @@ title = "Lecture Overview"
 weave = false
 +++
 
-# Overview
+# Lecture Overview
+
+\toc
 
 ## Lecture 1: Introduction and Syllabus
 
-### Lecture and Notes
+### Lecture 1.0: Introduction
+
+#### Lecture and Notes
 
 - [Introduction and Syllabus (Lecture)](https://youtu.be/3IoqyXmAAkU)
 
@@ -15,15 +19,15 @@ This is to make sure we're all on the same page. It goes over the syllabus and
 what will be expected of you throughout the course. If you have not joined the Slack,
 please use the link from the introduction email (or email me if you need the link!).
 
-## Lecture 1.1: Getting Started with Julia
+### Lecture 1.1: Getting Started with Julia
 
-### Lecture and Notes
+#### Lecture and Notes
 
 - [Getting Started with Julia for Experienced Programmers (Lecture)](https://youtu.be/-lJK92bEKow)
 - [Julia for Numerical Computation in MIT Courses](https://github.com/mitmath/julia-mit)
 - [Steven Johnson: MIT Julia Tutorial](https://mit.zoom.us/rec/play/E4zN_2MXQmCjX12admWsmsbG6hIlWJztnMmFjlfDEBnlAj8V2qisRn-CLI_WVnUGJFZ4bV6JGM-41m-u.LeAWxiLriV5HwqBK?startTime=1599594382000)
 
-### Optional Extra Resources
+#### Optional Extra Resources
 
 If you are not comfortable with Julia yet, here's a few resources as sort of a
 "crash course" to get you up an running:
@@ -49,7 +53,7 @@ interested. More details TBA.
 
 - [Optimizing Serial Code in Julia 1: Memory Models, Mutation, and Vectorization (Lecture)](https://youtu.be/M2i7sSRcSIw)
 - [Optimizing Serial Code in Julia 2: Type inference, function specialization, and dispatch (Lecture)](https://youtu.be/10_Ukm9wr9g)
-- [Optimizing Serial Code (Notes)](https://book.sciml.ai/lecture2/optimizing)
+- [Optimizing Serial Code (Notes)](/notes/02/)
 
 ### Optional Extra Resources
 
@@ -71,7 +75,7 @@ is efficient.
 
 - [Introduction to Scientific Machine Learning 1: Deep Learning as Function Approximation (Lecture)](https://youtu.be/C3vf9ZFYbjI)
 - [Introduction to Scientific Machine Learning 2: Physics-Informed Neural Networks (Lecture)](https://youtu.be/hKHl68Fdpq4)
-- [Introduction to Scientific Machine Learning through Physics-Informed Neural Networks (Notes)](https://book.sciml.ai/lecture3/sciml.html)
+- [Introduction to Scientific Machine Learning through Physics-Informed Neural Networks (Notes)](/notes/03/)
 
 ### Optional Extra Resources
 
@@ -98,7 +102,7 @@ differential equation.
 
 - [How Loops Work 1: An Introduction to the Theory of Discrete Dynamical Systems (Lecture)](https://www.youtube.com/watch?v=GhBARuHEydM)
 - [How Loops Work 2: Computationally-Efficient Discrete Dynamics (Lecture)](https://youtu.be/AXHLyHfyEuA)
-- [How Loops Work, An Introduction to Discrete Dynamics (Notes)](https://book.sciml.ai/lecture4/dynamical_systems.html)
+- [How Loops Work, An Introduction to Discrete Dynamics (Notes)](/notes/04/)
 
 ### Optional Extra Resources
 
@@ -130,7 +134,7 @@ dynamical systems which will be further explored through the rest of the course.
 ## Lecture 5: Array-Based Parallelism, Embarrassingly Parallel Problems, and Data-Parallelism: The Basics of Single Node Parallel Computing
 
 - [The Basics of Single Node Parallel Computing (Lecture)](https://youtu.be/eca6kcFntiE)
-- [The Basics of Single Node Parallel Computing (Notes)](https://book.sciml.ai/lecture5/parallelism_overview.html)
+- [The Basics of Single Node Parallel Computing (Notes)](/notes/05/)
 
 ### Optional Extra Resources
 
@@ -152,7 +156,7 @@ considerations will be discussed.
 ## Lecture 6: Styles of Parallelism
 
 - [The Different Flavors of Parallelism: Parallel Programming Models (Lecture)](https://youtu.be/EP5VWwPIews)
-- [The Different Flavors of Parallelism (Notes)](https://book.sciml.ai/lecture6/styles_of_parallelism.html)
+- [The Different Flavors of Parallelism (Notes)](/notes/06/)
 
 Here we continue down the line of describing methods of parallelism by giving a
 high level overview of the types of parallelism. SIMD and multithreading are
@@ -169,25 +173,25 @@ hardware abstractions.
 
 - [Ordinary Differential Equations 1: Applications and Solution Characteristics (Lecture)](https://youtu.be/riAbPZy9gFc)
 - [Ordinary Differential Equations 2: Discretizations and Stability (Lecture)](https://youtu.be/HMmOk9GIhsw)
-- [Ordinary Differential Equations: Applications and Discretizations (Notes)](https://book.sciml.ai/lecture7/discretizing_odes.html)
+- [Ordinary Differential Equations: Applications and Discretizations (Notes)](/notes/07/)
 
 In this lecture we will describe ordinary differential equations, where they arise in scientific contexts, and how they are solved. We will see that understanding the properties of the numerical methods requires understanding the dynamics of the discrete system generated from the approximation to the continuous system, and thus stability of a numerical method is directly tied to the stability properties of the dynamics. This gives the idea of stiffness, which is a larger computational idea about ill-conditioned systems.
 
 ## Lecture 8: Forward-Mode Automatic Differentiation
 
 - [Forward-Mode Automatic Differentiation (AD) via High Dimensional Algebras (Lecture)](https://youtu.be/zHPXGBiTM5A)
-- [Forward-Mode Automatic Differentiation (AD) via High Dimensional Algebras (Notes)](https://book.sciml.ai/lecture8/automatic_differentiation.html)
+- [Forward-Mode Automatic Differentiation (AD) via High Dimensional Algebras (Notes)](/notes/08/)
 
 As we will soon see, the ability to calculate derivatives underpins a lot of problems in both scientific computing and machine learning. We will specifically see it show up in later lectures on solving implicit equations f(x)=0 for stiff ordinary differential equation solvers, and in fitting neural networks. The common high performance way that this is done is called automatic differentiation. This lecture introduces the methods of forward and reverse mode automatic differentiation to setup future studies uses of the technique.
 
 ## Lecture 9: Solving Stiff Ordinary Differential Equations
 
-#### Lecture Notes
+### Lecture Notes
 
 - [Solving Stiff Ordinary Differential Equations (Lecture)](https://youtu.be/bY2VCoxMuo8)
-- [Solving Stiff Ordinary Differential Equations (Notes)](https://book.sciml.ai/lecture9/stiff_odes)
+- [Solving Stiff Ordinary Differential Equations (Notes)](/notes/09/)
 
-#### Additional Readings on Convergence of Newton's Method
+### Additional Readings on Convergence of Newton's Method
 
 - [Newton's Method](https://link.springer.com/chapter/10.1007%2F978-1-4612-0701-6_8)
 - [Relaxed Newton's Method](https://pdfs.semanticscholar.org/1844/34b366f337972aa94a601fabd251d0baf62f.pdf)
@@ -209,7 +213,7 @@ have.
 ## Lecture 10: Basic Parameter Estimation, Reverse-Mode AD, and Inverse Problems
 
 - [Basic Parameter Estimation, Reverse-Mode AD, and Inverse Problems (Lecture)](https://youtu.be/XQAe4pEZ6L4)
-- [Basic Parameter Estimation, Reverse-Mode AD, and Inverse Problems (Notes)](https://book.sciml.ai/lecture10/estimation_identification)
+- [Basic Parameter Estimation, Reverse-Mode AD, and Inverse Problems (Notes)](/notes/10/)
 
 Now that we have models, how do you fit the models to data? This lecture goes through the basic shooting method for parameter estimation, showcases how it's equivalent to training neural networks, and gives an in-depth discussion of how reverse-mode automatic differentiation is utilized in the training process for the efficient calculation of gradients.
 
@@ -217,7 +221,7 @@ Now that we have models, how do you fit the models to data? This lecture goes th
 
 - [Differentiable Programming Part 1: Reverse-Mode AD Implementation (Lecture)](https://youtu.be/fXcekZZP-1A)
 - [Differentiable Programming Part 2: Adjoint Derivation for (Neural) ODEs and Nonlinear Solve (Lecture)](https://youtu.be/KCTfPyVIxpc)
-- [Differentiable Programming and Neural Differential Equations (Notes)](https://book.sciml.ai/lecture11/adjoints)
+- [Differentiable Programming and Neural Differential Equations (Notes)](/notes/11/)
 
 ### Additional Readings on AD Implementations
 
@@ -232,17 +236,19 @@ be utilized for parameter fitting? This lecture will explore where reverse-mode
 AD intersects with scientific modeling, and where machine learning begins to
 enter scientific computing.
 
-## Lecture 12.1: MPI for Distributed Computing
+## Lecture 12: SciML in Practice
+
+### Lecture 12.1: MPI for Distributed Computing
 
 Guest Lecturer: Lauren E. Milechin, MIT Lincoln Lab and the MIT Supercloud
 Guest Writer: Jeremy Kepner, MIT Lincoln Lab and the MIT Supercloud
 
 - [Introduction to MPI.jl (Lecture)](https://www.youtube.com/watch?v=LCIJj0czofo)
-- [Introduction to MPI.jl (Notes: PDF)](https://github.com/mitmath/18337/blob/master/lecture12/MPI.jl.pdf)
+- [Introduction to MPI.jl (Notes: PDF)](/notes/12/)
 
 In this lecture we went over the basics of MPI (Message Passing Interface) for distributed computing and examples on how to use MPI.jl to write parallel programs that work efficiently over multiple computers (or "compute nodes"). The MPI programming model and the job scripts required for using MPI on the MIT Supercloud HPC were demonstrated.
 
-## Lecture 12.2: Mathematics of Machine Learning and High Performance Computing
+### Lecture 12.2: Mathematics of Machine Learning and High Performance Computing
 
 Guest Lecturer: Jeremy Kepner, MIT Lincoln Lab and the MIT Supercloud
 
@@ -260,6 +266,7 @@ Guest Lecturer: Valentin Churavy, MIT Julia Lab
 
 - [Parallel Computing: From SIMD to SIMT (Lecture)](https://youtu.be/KCYlEub_8xc)
 - [GPU Computing in Julia](https://youtu.be/v9bFRg4rUfk)
+- [GPU Programming in Julia](/notes/13/)
 - [Parallel Computing: From SIMD to SIMT (Notes)](https://docs.google.com/presentation/d/1C1dt8zeNW7spgswr2CmLrE0G-ayj0ItvoEWHdX_0kYc/edit#slide=id.g76b4384d33_0_5)
 - [GPU Computing in Julia (Notes)](https://docs.google.com/presentation/d/1QvHE_xVDKnPA3-nowzpZY1lUdXr7B8rLCu2usOz8KT8/edit#slide=id.gb00e54ec3a_0_477)
 
@@ -272,7 +279,7 @@ compilation for such hardware.
 ## Lecture 14: Partial Differential Equations and Convolutional Neural Networks
 
 - [PDEs, Convolutions, and the Mathematics of Locality (Lecture)](https://youtu.be/apkyk8n0vBo)
-- [PDEs, Convolutions, and the Mathematics of Locality (Notes)](https://book.sciml.ai/lecture14/pdes_and_convolutions)
+- [PDEs, Convolutions, and the Mathematics of Locality (Notes)](/notes/14/)
 
 ### Additional Readings
 
@@ -286,7 +293,7 @@ than just similar: the two are both stencil computations on spatial data!
 ## Lecture 15: More Algorithms which Connect Differential Equations and Machine Learning
 
 - [Mixing Differential Equations and Neural Networks for Physics-Informed Learning (Lecture)](https://youtu.be/YuaVXt--gAA)
-- [Mixing Differential Equations and Neural Networks for Physics-Informed Learning (Notes)](https://book.sciml.ai/lecture15/diffeq_machine_learning)
+- [Mixing Differential Equations and Neural Networks for Physics-Informed Learning (Notes)](/notes/15/)
 
 Neural ordinary differential equations and physics-informed neural networks are
 only the tip of the iceberg. In this lecture we will look into other algorithms
@@ -311,7 +318,7 @@ applications can be used effectively.
 ## Lecture 16: Probabilistic Programming
 
 - [From Optimization to Probabilistic Programming (Lecture)](https://youtu.be/32rAwtTAGdU)
-- [From Optimization to Probabilistic Programming (Notes)](https://book.sciml.ai/lecture16/probabilistic_programming)
+- [From Optimization to Probabilistic Programming (Notes)](/notes/16/)
 
 All of our previous discussions lived in a deterministic world. Not this one.
 Here we turn to a probabilistic view and allow programs to have random variables.
@@ -336,14 +343,14 @@ programming to estimate distributions of probabilistic programs.
 ## Lecture 17: Global Sensitivity Analysis
 
 - [Global Sensitivity Analysis (Lecture)](https://youtu.be/wzTpoINJyBQ)
-- [Global Sensitivity Analysis (Notes)](https://book.sciml.ai/lecture17/global_sensitivity)
+- [Global Sensitivity Analysis (Notes)](/notes/17/)
 
 Our previous analysis of sensitivities was all local. What does it mean to example the sensitivities of a model globally? It turns out the probabilistic programming viewpoint gives us a solid way of describing how we expect values to be changing over larger sets of parameters via the random variables that describe the program's inputs. This means we can decompose the output variance into indices which can be calculated via various quadrature approximations which then give a tractable measurement to "variable x has no effect on the mean solution".
 
 ## Lecture 18: Code Profiling and Optimization
 
 - [Code Profiling and Optimization (Lecture)](https://youtu.be/h-xVBD2Pk9o)
-- [Code Profiling and Optimization (Notes)](https://book.sciml.ai/lecture18/code_profiling)
+- [Code Profiling and Optimization (Notes)](/notes/18/)
 
 How do you put everything together in this course? Let's take a look at a PDE
 solver code given in a method of lines form. In this lecture I walk through the
@@ -353,7 +360,7 @@ between variable caching and automatic differentiation.
 ## Lecture 19: Uncertainty Programming and Generalized Uncertainty Quantification
 
 - [Uncertainty Programming (Lecture)](https://youtu.be/MRTXK2Vc0YE)
-- [Uncertainty Programming (Notes)](https://book.sciml.ai/lecture19/uncertainty_programming)
+- [Uncertainty Programming (Notes)](/notes/19/)
 
 We end the course by taking a look at another mathematical topic to see whether
 it can be addressed in a similar manner: uncertainty quantification (UQ). There

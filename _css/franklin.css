@@ -107,9 +107,12 @@ html {
     TITLES
 ================================================================== */
 
-.franklin-content h1 { font-size: 24px; }
-.franklin-content h2 { font-size: 22px; }
-.franklin-content h3 { font-size: 20px; }
+.franklin-content h1 { font-size: xxx-large; }
+.franklin-content h2 { font-size: xx-large; }
+.franklin-content h3 { font-size: x-large; }
+.franklin-content h4 { font-size: x-large; }
+.franklin-content h5 { font-size: large; }
+.franklin-content h6 { font-size: large; }
 
 .franklin-content h1,
 h2,
@@ -122,30 +125,36 @@ h6 {
 
 .franklin-content h1 {
   padding-bottom: 0.5em;
-  border-bottom: 3px double lightgrey;
+  /* border-bottom: 3px double lightgrey; */
   margin-top: 1.5em;
   margin-bottom: 1em;
 }
 
 .franklin-content h2 {
   padding-bottom: 0.3em;
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
   margin-top: 2em;
   margin-bottom: 1em;
 }
 
-.franklin-content h1 a { color: inherit; }
-.franklin-content h1 a:hover { text-decoration: none; }
-.franklin-content h2 a { color: inherit; }
-.franklin-content h2 a:hover { text-decoration: none; }
-.franklin-content h3 a { color: inherit; }
-.franklin-content h3 a:hover { text-decoration: none; }
-.franklin-content h4 a { color: inherit; }
-.franklin-content h4 a:hover { text-decoration: none; }
-.franklin-content h5 a { color: inherit; }
-.franklin-content h5 a:hover { text-decoration: none; }
-.franklin-content h6 a { color: inherit; }
-.franklin-content h6 a:hover { text-decoration: none; }
+.franklin-content h1 a { color: inherit; text-decoration: none; }
+.franklin-content h1 a:link { background-repeat: unset; }
+.franklin-content h1 a:hover { text-decoration: underline; }
+.franklin-content h2 a { color: inherit; text-decoration: none; }
+.franklin-content h2 a:link { background-repeat: no-repeat, no-repeat, repeat-x; }
+.franklin-content h2 a:hover { text-decoration: underline; }
+.franklin-content h3 a { color: inherit; text-decoration: none; }
+.franklin-content h3 a:link { background-repeat: no-repeat, no-repeat, repeat-x; }
+.franklin-content h3 a:hover { text-decoration: underline; }
+.franklin-content h4 a { color: inherit; text-decoration: none; font-weight: normal; }
+.franklin-content h4 a:link { background-repeat: no-repeat, no-repeat, repeat-x; }
+.franklin-content h4 a:hover { text-decoration: underline; }
+.franklin-content h5 a { color: inherit; text-decoration: none; }
+.franklin-content h5 a:link { background-repeat: unset; }
+.franklin-content h5 a:hover { text-decoration: underline; }
+.franklin-content h6 a { color: inherit; text-decoration: none; }
+.franklin-content h6 a:link { background-repeat: unset; }
+.franklin-content h6 a:hover { text-decoration: underline; }
 
 .franklin-content table {
   margin-left: auto;

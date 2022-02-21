@@ -12,7 +12,7 @@
 
 #menu ul {
   text-align: center;
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 
@@ -25,6 +25,7 @@
 #menu ul li a {
   color: #111;
   text-decoration: none;
+  background-repeat: no-repeat, no-repeat, repeat-x;
   position: relative;
   padding: 10px 10px;
 }
@@ -77,7 +78,7 @@
   #menu {
     margin-top: 100px;
     float: left;
-    width: 100px;
+    width: 200px;
     text-align: right;
   }
   .franklin-content { width: 600px; }

@@ -119,6 +119,6 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 0.9em;
+  font-family: JuliaMono, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: medium;
 }
