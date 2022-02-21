@@ -9,13 +9,13 @@ weave_options:
 ---
 
 In this homework, we will write an implementation of neural ordinary differential
-equations from scratch. You may use the DifferentialEquations.jl ODE solver,
+equations from scratch. You may use the `DifferentialEquations.jl` ODE solver,
 but not the adjoint sensitivities functionality. Optionally, a second problem
 is to add GPU support to your implementation.
 
 Due December 9th, 2020 at midnight.
 
-Please email the results to 18337.mit.psets@gmail.com.
+Please email the results to `18337.mit.psets@gmail.com`.
 
 ## Problem 1: Neural ODE from Scratch
 

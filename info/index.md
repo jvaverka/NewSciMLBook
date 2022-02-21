@@ -96,9 +96,9 @@ Homework 3: Training neural ordinary differential equations (with GPUs)
 
 ## Homeworks
 
-- [Homework 1: Parallelized Dynamics. Due October 1st](https://book.sciml.ai/hw1/hw1)
-- [Homework 2: Parameter Estimation in Dynamical Systems and Bandwidth Maximization. Due November 5th](https://book.sciml.ai/hw2/hw2)
-- [Homework 3: Neural Ordinary Differential Equation Adjoints. Due December 9th](https://book.sciml.ai/hw3/hw3)
+- [Homework 1: Parallelized Dynamics. Due October 1st](/homework/01/)
+- [Homework 2: Parameter Estimation in Dynamical Systems and Bandwidth Maximization. Due November 5th](/homework/02/)
+- [Homework 3: Neural Ordinary Differential Equation Adjoints. Due December 9th](/homework/03/)
 
 ## Lecture Summaries and Handouts
 

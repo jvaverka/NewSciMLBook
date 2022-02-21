@@ -5,7 +5,9 @@ rss = "This repository is meant to be a live document, updating to continuously 
 weave = false
 +++
 
-# Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications
+# SciML Book
+
+## Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications
 
 **This book is a compilation of lecture notes from the MIT Course 18.337J/6.338J: Parallel Computing and Scientific Machine Learning.
 Links to the old notes https://mitmath.github.io/18337 will redirect here**
