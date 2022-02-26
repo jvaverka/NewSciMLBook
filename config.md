@@ -1,6 +1,7 @@
 <!-- Global page variables -->
 +++
 author = "Chris Rackauckas"
+source_url = "https://github.com/SciML/SciMLBook"
 mintoclevel = 2
 maxtoclevel = 6
 weave = false
