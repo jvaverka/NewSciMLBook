@@ -1,9 +1,11 @@
 +++
-title = "Syllabus"
+title = "Course Overview"
 weave = false
 +++
 
-# Syllabus
+# Course Overview
+
+## Syllabus
 
 **Pre-recorded online lectures are available to compliment the lecture notes**
 
@@ -23,7 +25,7 @@ and [Gilbert Strang's Computational Science and Engineering](https://www.amazon.
 Much of the reading will come in the form of primary literature from journal
 articles posted here.
 
-## Schedule of Topics
+### Schedule of Topics
 
 Each topic is a group of three pieces: a numerical method, a performance-engineering
 technique, and a scientific application. These three together form a complete
@@ -94,13 +96,13 @@ Homework 3: Training neural ordinary differential equations (with GPUs)
   - Surrogate Modeling
   - Uncertainty Quantification
 
-## Homeworks
+### Homeworks
 
 - [Homework 1: Parallelized Dynamics. Due October 1st](/homework/01/)
 - [Homework 2: Parameter Estimation in Dynamical Systems and Bandwidth Maximization. Due November 5th](/homework/02/)
 - [Homework 3: Neural Ordinary Differential Equation Adjoints. Due December 9th](/homework/03/)
 
-## Lecture Summaries and Handouts
+### Lecture Summaries and Handouts
 
 Note that lectures are broken down by topic, not by day. Some lectures are more
 than 1 class day, others are less.
